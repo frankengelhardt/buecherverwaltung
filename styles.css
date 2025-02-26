@@ -1,0 +1,297 @@
+/* Grundlegende Stile */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;  /* Standard Hintergrund für Light Mode */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* light-mode */
+header {
+    background-color: #0067a3;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* dark-mode */
+body.dark-mode {
+    background-color: #333;  /* Hintergrund des gesamten Body im Dark Mode */
+}
+
+/* Header im Dark Mode */
+body.dark-mode header {
+    background-color: #444;  /* Dunklerer Hintergrund für den Header im Dark Mode */
+    color: white;  /* Weiße Schriftfarbe im Dark Mode */
+}
+
+/* Suchfeld */
+#searchInput {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+/* Dark Mode für das Suchfeld */
+body.dark-mode #searchInput {
+    background-color: #333;
+    color: #f1f1f1;
+    border: 1px solid #555;
+}
+
+/* Bücheranzeige Grid */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Buch-Boxen für Light Mode */
+.book-item {
+    background: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+/* Dark Mode für Buch-Boxen */
+.book-item.dark-mode {
+    background: #414141; /* Dunklerer Hintergrund im Dark Mode */
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+/* Buch-Boxen für Dark Mode */
+body.dark-mode .book-item {
+    background: #555;
+    color: white;
+}
+
+/* Bilder in den Bücherboxen */
+.book-item img {
+    width: 50%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Buttons in den Bücherboxen für Light Mode */
+.book-item button {
+    background-color: #0067a3;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+/* Buttons in den Bücherboxen für Dark Mode */
+body.dark-mode .book-item button {
+    background-color: #444;
+    color: white;
+}
+
+/* Hover für die Buttons */
+.book-item button:hover {
+    background-color: #004c6d;
+}
+
+/* Neue Regeln für den Favoritenbutton */
+.book-item button.favorite {
+    background-color: #ffd700;  /* Goldener Stern für favorisierte Bücher */
+}
+
+/* Buttons für den Favoritenbutton im Dark Mode */
+body.dark-mode .book-item button.favorite {
+    background-color: #ffd700;  /* Goldener Stern für favorisierte Bücher im Dark Mode */
+}
+
+/* Hover für den Favoritenbutton */
+.book-item button.favorite:hover {
+    background-color: #ffcc00; /* Hellerer Goldton, wenn Favorit aktiv */
+}
+
+/* Formular für "Buch hinzufügen" */
+#addBookSection {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Eingabefelder und Buttons im Formular */
+#addBookSection input,
+#addBookSection select,
+#addBookSection textarea {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Button im Formular für Light Mode */
+#addBookSection button {
+    background-color: #0067a3;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Button im Formular für Dark Mode */
+body.dark-mode #addBookSection button {
+    background-color: #444;
+    color: white;
+}
+
+/* Hover für den Button */
+#addBookSection button:hover {
+    background-color: #004c6d;
+}
+
+/* Dark Mode Styling für das Formular */
+body.dark-mode #addBookSection {
+    background-color: #444;
+    color: white;
+}
+
+/* Schaltfläche Dark Mode */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal-Inhalt für alle Modals */
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Bestätigungsmodal für das Löschen eines Buches */
+#deleteConfirmationModal .modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#deleteConfirmationModal button {
+    background-color: #d9534f;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#deleteConfirmationModal button:hover {
+    background-color: #c9302c;
+}
+
+/* Dark Mode für "Keine Bücher gefunden" */
+body.dark-mode #bookList p {
+    color: #f1f1f1; /* Weiße Schriftfarbe für Dark Mode */
+}
