@@ -29,6 +29,13 @@ body.dark-mode header {
     color: white;  /* Weiße Schriftfarbe im Dark Mode */
 }
 
+/* Stil für den Datei-Upload */
+#bookCoverFile {
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+}
+
 /* Suchfeld */
 #searchInput {
     width: 80%;
@@ -36,6 +43,75 @@ body.dark-mode header {
     padding: 10px;
     margin-top: 10px;
     font-size: 16px;
+}
+
+/* Filterbereich */
+#filterSection {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+	 flex-wrap: wrap;
+}
+
+#filterSection select {
+    padding: 10px;
+    font-size: 16px;
+	background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#filterSection select:focus {
+    outline: none;
+    border-color: #0067a3;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.2);
+}
+
+/* Dark Mode für den Filterbereich */
+body.dark-mode #filterSection select {
+    background-color: #444;
+    color: white;
+    border-color: #666;
+}
+
+/* Dark Mode Focus für Filter */
+body.dark-mode #filterSection select:focus {
+    outline: none;
+    border-color: #2196F3;
+    box-shadow: 0 0 5px rgba(0, 153, 255, 0.3);
+}
+
+/* Statuspunkte */
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.available {
+    background-color: green;
+}
+
+.unavailable {
+    background-color: red;
+}
+
+/* Status-Button */
+.status-button {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.status-button:hover {
+    background-color: #e67e22;
 }
 
 /* Dark Mode für das Suchfeld */
@@ -51,6 +127,7 @@ body.dark-mode #searchInput {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
+	justify-content: center;
 }
 
 /* Buch-Boxen für Light Mode */
@@ -81,8 +158,9 @@ body.dark-mode .book-item {
 
 /* Bilder in den Bücherboxen */
 .book-item img {
-    width: 50%;
-    height: 200px;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
     object-fit: cover;
     border-radius: 5px;
 }
@@ -113,16 +191,24 @@ body.dark-mode .book-item button {
 /* Neue Regeln für den Favoritenbutton */
 .book-item button.favorite {
     background-color: #ffd700;  /* Goldener Stern für favorisierte Bücher */
+	color: #333;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 /* Buttons für den Favoritenbutton im Dark Mode */
 body.dark-mode .book-item button.favorite {
     background-color: #ffd700;  /* Goldener Stern für favorisierte Bücher im Dark Mode */
+	color: #333;
 }
 
 /* Hover für den Favoritenbutton */
 .book-item button.favorite:hover {
     background-color: #ffcc00; /* Hellerer Goldton, wenn Favorit aktiv */
+	color: #333;
 }
 
 /* Formular für "Buch hinzufügen" */
@@ -144,11 +230,22 @@ body.dark-mode .book-item button.favorite {
 #addBookSection input,
 #addBookSection select,
 #addBookSection textarea {
-    padding: 10px;
-    margin: 5px 0;
+    padding: 12px;
+    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/* Dark Mode für Eingabefelder im Formular */
+body.dark-mode #addBookSection input,
+body.dark-mode #addBookSection select,
+body.dark-mode #addBookSection textarea {
+    background-color: #555;
+    color: white;
+    border: 1px solid #666;
 }
 
 /* Button im Formular für Light Mode */
@@ -295,3 +392,153 @@ input:checked + .slider:before {
 body.dark-mode #bookList p {
     color: #f1f1f1; /* Weiße Schriftfarbe für Dark Mode */
 }
+
+/* Media Queries für Responsivität */
+@media screen and (max-width: 768px) {
+    /* Anpassungen für Smartphones */
+    #searchInput {
+        width: 100%;
+        max-width: none;
+        font-size: 14px;
+    }
+
+    .book-item img {
+        max-width: 150px;
+    }
+
+    .book-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #addBookSection {
+        width: 90%;
+        max-width: none;
+    }
+}
+
+/* Media Queries für Responsivität */
+
+/* Anpassungen für Galaxy S9+, iPhone 5/SE und andere Geräte mit ähnlichen Größen (320px bis 568px) */
+@media screen and (max-width: 568px) {
+    /* Anpassungen für Smartphones */
+    #searchInput {
+        width: 100%;
+        max-width: none;
+        font-size: 14px;
+    }
+
+    .book-item img {
+        max-width: 150px;
+    }
+
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #addBookSection {
+        width: 90%;
+        max-width: none;
+    }
+}
+
+/* Anpassungen für iPhone 6/7/8 und iPhone X (375px bis 812px) */
+@media screen and (max-width: 812px) {
+    /* Anpassungen für Smartphones */
+    #searchInput {
+        width: 100%;
+        max-width: none;
+        font-size: 14px;
+    }
+
+    .book-item img {
+        max-width: 180px;
+    }
+
+    .book-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #addBookSection {
+        width: 90%;
+    }
+}
+
+/* Anpassungen für iPhone 12 Pro, iPhone 14 Pro Max, Samsung Galaxy S20, iPhone 11 Pro Max (430px bis 932px) */
+@media screen and (max-width: 932px) {
+    .book-item img {
+        max-width: 200px;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #addBookSection {
+        width: 85%;
+    }
+}
+
+/* Anpassungen für Tablets (768px bis 1024px) */
+@media screen and (max-width: 1024px) {
+    .book-item img {
+        max-width: 200px;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #addBookSection {
+        width: 85%;
+    }
+}
+
+/* Anpassungen für größere Desktops (ab 1200px) */
+@media screen and (min-width: 1200px) {
+    .book-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #addBookSection {
+        width: 75%;
+    }
+}
+
+/* Anpassungen für kleinere Geräte, wie iPhone X/XS, Galaxy S9+, iPhone 5/SE, Google Pixel 4 */
+@media screen and (max-width: 915px) {
+    /* Header und Filter untereinander */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #filterSection {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    #searchInput {
+        width: 100%;
+		max-width: 250px; /*die max-width für kleinere Geräte */
+        margin-top: 10px;
+    }
+
+    /* Dark Mode Slider unten */
+    .switch {
+        margin-top: 20px;
+        align-self: flex-start;
+    }
+    
+    /* Anpassungen für Buchanzeige */
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #addBookSection {
+        width: 90%;
+        max-width: none;
+    }
+}
+

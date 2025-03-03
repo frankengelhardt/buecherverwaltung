@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Bücherverwaltung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bücherverwaltung</div>
+        <input type="text" id="searchInput" placeholder="Suche nach Titel oder Kategorie" oninput="searchBooks()">
+        
+        <!-- Dark Mode Toggle als Schieberegler -->
+        <div id="darkModeToggle" class="dark-mode-toggle">
+            <label class="switch">
+                <input type="checkbox" id="darkModeCheckbox" onchange="toggleDarkMode()">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </header>
+	
+	    <!-- Filteroptionen -->
+    <div id="filterSection">
+        <select id="filterCategory" onchange="filterBooks()">
+            <option value="">Alle Kategorien</option>
+        </select>
+        <select id="filterAvailability" onchange="filterBooks()">
+            <option value="">Alle</option>
+            <option value="true">Verfügbar</option>
+            <option value="false">Ausgeliehen</option>
+        </select>
+		 <!-- Neue Filteroption für Favoriten -->
+		<select id="filterFavorites" onchange="filterBooks()">
+			<option value="">Alle Bücher</option>
+			<option value="true">Nur Favoriten</option>
+		</select>	
+    </div>
+
+    <!-- Bereich für die Buchanzeige -->
+    <div id="bookList" class="book-grid"></div>
+
+    <!-- Modal für Buchdetails -->
+    <div id="bookDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalCategory"></p>
+            <p id="modalDescription"></p>
+            <p id="modalPrice"></p>
+            <p id="modalIsbn"></p>
+        </div>
+    </div>
+
+    <!-- Bestätigungsmodal für das Löschen eines Buches -->
+    <div id="deleteConfirmationModal" class="modal">
+        <div class="modal-content">
+            <p>Wollen Sie dieses Buch wirklich löschen?</p>
+            <button id="confirmDeleteButton">Ja, löschen</button>
+            <button onclick="closeDeleteModal()">Abbrechen</button>
+        </div>
+    </div>
+
+    <!-- Bereich für das Hinzufügen von Büchern -->
+<div id="addBookSection" class="add-book-section">
+   <h2>Buch hinzufügen</h2>
+    <form id="bookForm">
+        <input type="text" id="bookTitle" placeholder="Titel" required>
+        <input type="file" id="bookCoverFile" accept="image/*">
+        <input type="text" id="bookCover" placeholder="Cover-URL (optional)">
+        <select id="bookCategory" required></select>
+        <textarea id="bookDescription" placeholder="Beschreibung" required></textarea>
+        <input type="number" id="bookPrice" placeholder="Preis (€)" step="0.01" required>
+        <input type="text" id="bookIsbn" placeholder="ISBN" required>
+        <button type="button" onclick="addBook()">Buch hinzufügen</button>
+    </form>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
