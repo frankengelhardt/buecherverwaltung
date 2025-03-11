@@ -1,13 +1,14 @@
 /* Grundlegende Stile */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;  /* Standard Hintergrund für Light Mode */
+    background-color: #f4f4f4;
     color: #333;
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s, color 0.3s; /* Übergang für Dark Mode */
 }
 
-/* light-mode */
+/* Header */
 header {
     background-color: #0067a3;
     color: white;
@@ -16,71 +17,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* dark-mode */
-body.dark-mode {
-    background-color: #333;  /* Hintergrund des gesamten Body im Dark Mode */
-}
-
-/* Header im Dark Mode */
-body.dark-mode header {
-    background-color: #444;  /* Dunklerer Hintergrund für den Header im Dark Mode */
-    color: white;  /* Weiße Schriftfarbe im Dark Mode */
-}
-
-/* Stil für den Datei-Upload */
-#bookCoverFile {
-    display: block;
-    margin: 10px auto;
-    padding: 5px;
-}
-
-/* Suchfeld */
-#searchInput {
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-/* Filterbereich */
-#filterSection {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px;
-	 flex-wrap: wrap;
-}
-
-#filterSection select {
-    padding: 10px;
-    font-size: 16px;
-	background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#filterSection select:focus {
-    outline: none;
-    border-color: #0067a3;
-    box-shadow: 0 0 5px rgba(0, 0, 255, 0.2);
-}
-
-/* Dark Mode für den Filterbereich */
-body.dark-mode #filterSection select {
-    background-color: #444;
-    color: white;
-    border-color: #666;
-}
-
-/* Dark Mode Focus für Filter */
-body.dark-mode #filterSection select:focus {
-    outline: none;
-    border-color: #2196F3;
-    box-shadow: 0 0 5px rgba(0, 153, 255, 0.3);
 }
 
 /* Statuspunkte */
@@ -100,6 +36,12 @@ body.dark-mode #filterSection select:focus {
     background-color: red;
 }
 
+/* Logo */
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
 /* Status-Button */
 .status-button {
     background-color: #f39c12;
@@ -114,11 +56,83 @@ body.dark-mode #filterSection select:focus {
     background-color: #e67e22;
 }
 
+/* Suchfeld */
+#searchInput {
+    width: 80%;
+    max-width: 400px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 /* Dark Mode für das Suchfeld */
 body.dark-mode #searchInput {
     background-color: #333;
     color: #f1f1f1;
     border: 1px solid #555;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode header {
+    background-color: #444;
+	color: white;
+}
+
+/* Filterbereich und Layout für die seitliche Navigation */
+.container {
+    display: flex;
+    min-height: calc(100vh - 50px);
+}
+
+#sidebar {
+    width: 250px;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+#sidebar h2 {
+    margin-top: 0;
+}
+
+#sidebar .filter-group {
+    margin-bottom: 15px;
+}
+
+#sidebar label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#sidebar select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+body.dark-mode #sidebar {
+    background-color: #444;
+    color: white;
+}
+
+body.dark-mode #sidebar select {
+    background-color: #555;
+    color: white;
+    border: 1px solid #666;
+}
+
+#content {
+    flex: 1;
+    padding: 20px;
 }
 
 /* Bücheranzeige Grid */
@@ -127,22 +141,12 @@ body.dark-mode #searchInput {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
-	justify-content: center;
+    justify-content: center;
 }
 
-/* Buch-Boxen für Light Mode */
+/* Buch-Boxen */
 .book-item {
     background: white;
-    padding: 15px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease;
-}
-
-/* Dark Mode für Buch-Boxen */
-.book-item.dark-mode {
-    background: #414141; /* Dunklerer Hintergrund im Dark Mode */
     padding: 15px;
     text-align: center;
     border-radius: 8px;
@@ -165,7 +169,7 @@ body.dark-mode .book-item {
     border-radius: 5px;
 }
 
-/* Buttons in den Bücherboxen für Light Mode */
+/* Buttons in den Bücherboxen */
 .book-item button {
     background-color: #0067a3;
     color: white;
@@ -177,21 +181,10 @@ body.dark-mode .book-item {
     transition: background 0.3s ease;
 }
 
-/* Buttons in den Bücherboxen für Dark Mode */
-body.dark-mode .book-item button {
-    background-color: #444;
-    color: white;
-}
-
-/* Hover für die Buttons */
-.book-item button:hover {
-    background-color: #004c6d;
-}
-
 /* Neue Regeln für den Favoritenbutton */
 .book-item button.favorite {
     background-color: #ffd700;  /* Goldener Stern für favorisierte Bücher */
-	color: #333;
+    color: #333;
     border: none;
     padding: 8px;
     cursor: pointer;
@@ -202,13 +195,22 @@ body.dark-mode .book-item button {
 /* Buttons für den Favoritenbutton im Dark Mode */
 body.dark-mode .book-item button.favorite {
     background-color: #ffd700;  /* Goldener Stern für favorisierte Bücher im Dark Mode */
-	color: #333;
+    color: #333;
 }
 
 /* Hover für den Favoritenbutton */
 .book-item button.favorite:hover {
     background-color: #ffcc00; /* Hellerer Goldton, wenn Favorit aktiv */
-	color: #333;
+    color: #333;
+}
+
+body.dark-mode .book-item button {
+    background-color: #444;
+    color: white;
+}
+
+.book-item button:hover {
+    background-color: #004c6d;
 }
 
 /* Formular für "Buch hinzufügen" */
@@ -235,8 +237,8 @@ body.dark-mode .book-item button.favorite {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-	width: 100%;
-	box-sizing: border-box;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Dark Mode für Eingabefelder im Formular */
@@ -248,7 +250,7 @@ body.dark-mode #addBookSection textarea {
     border: 1px solid #666;
 }
 
-/* Button im Formular für Light Mode */
+/* Button im Formular */
 #addBookSection button {
     background-color: #0067a3;
     color: white;
@@ -260,13 +262,11 @@ body.dark-mode #addBookSection textarea {
     transition: background-color 0.3s ease;
 }
 
-/* Button im Formular für Dark Mode */
 body.dark-mode #addBookSection button {
-    background-color: #444;
+    background-color: #666;
     color: white;
 }
 
-/* Hover für den Button */
 #addBookSection button:hover {
     background-color: #004c6d;
 }
@@ -395,7 +395,6 @@ body.dark-mode #bookList p {
 
 /* Media Queries für Responsivität */
 @media screen and (max-width: 768px) {
-    /* Anpassungen für Smartphones */
     #searchInput {
         width: 100%;
         max-width: none;
@@ -521,24 +520,6 @@ body.dark-mode #bookList p {
 
     #searchInput {
         width: 100%;
-		max-width: 250px; /*die max-width für kleinere Geräte */
-        margin-top: 10px;
-    }
-
-    /* Dark Mode Slider unten */
-    .switch {
-        margin-top: 20px;
-        align-self: flex-start;
-    }
-    
-    /* Anpassungen für Buchanzeige */
-    .book-grid {
-        grid-template-columns: 1fr;
-    }
-
-    #addBookSection {
-        width: 90%;
         max-width: none;
     }
 }
-
