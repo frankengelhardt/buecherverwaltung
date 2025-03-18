@@ -76,8 +76,7 @@ body.dark-mode #searchInput {
 
 /* Dark Mode */
 body.dark-mode {
-    background-color: #333;
-    color: white;
+    background-color: #5b5b5b;
 }
 
 body.dark-mode header {
@@ -93,7 +92,7 @@ body.dark-mode header {
 
 #sidebar {
     width: 250px;
-    background-color: #f0f0f0;
+    background-color: #e1e1e1;
     padding: 20px;
 }
 
@@ -120,7 +119,7 @@ body.dark-mode header {
 }
 
 body.dark-mode #sidebar {
-    background-color: #444;
+    background-color: #6f6f6f;
     color: white;
 }
 
@@ -150,13 +149,13 @@ body.dark-mode #sidebar select {
     padding: 15px;
     text-align: center;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 16px 18px 8px 2px rgba(0, 0, 0, 36%);
     transition: background 0.3s ease;
 }
 
 /* Buch-Boxen für Dark Mode */
 body.dark-mode .book-item {
-    background: #555;
+    background: #6f6f6f;
     color: white;
 }
 
@@ -219,7 +218,7 @@ body.dark-mode .book-item button {
     padding: 20px;
     margin: 20px auto;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 20px 20px 5px rgba(0, 0, 0, 40%);
     text-align: center;
     width: 80%;
     max-width: 500px;
@@ -273,7 +272,7 @@ body.dark-mode #addBookSection button {
 
 /* Dark Mode Styling für das Formular */
 body.dark-mode #addBookSection {
-    background-color: #444;
+    background-color: #6f6f6f;
     color: white;
 }
 
@@ -316,7 +315,7 @@ body.dark-mode #addBookSection {
 }
 
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #bbbbbb;
 }
 
 input:checked + .slider:before {

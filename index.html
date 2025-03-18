@@ -51,10 +51,7 @@
         <!-- Hauptbereich für die Bücheranzeige -->
         <main id="content">
             <div id="bookList" class="book-grid"></div>
-        </main>
-    </div>
-
-    <!-- Formular zum Hinzufügen neuer Bücher -->
+			    <!-- Formular zum Hinzufügen neuer Bücher -->
     <section id="addBookSection">
         <h2>Buch hinzufügen</h2>
         <form id="bookForm" onsubmit="event.preventDefault(); addBook();">
@@ -68,8 +65,10 @@
             <button type="submit">Buch hinzufügen</button>
         </form>
     </section>
-
-    <!-- Detail-Modal -->
+        </main>
+    </div>
+	
+ <!-- Detail-Modal -->
     <div id="bookDetailModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
