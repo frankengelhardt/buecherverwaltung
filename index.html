@@ -19,75 +19,77 @@
         </label>
     </header>
 
+    <main>
     <!-- Container für Sidebar (Filter) und Inhaltsbereich -->
-    <div class="container">
-        <!-- Sidebar für Filteroptionen -->
-        <aside id="sidebar">
-            <h2>Filter</h2>
-            <div class="filter-group">
-                <label for="filterCategory">Kategorie:</label>
-                <select id="filterCategory" onchange="filterBooks()">
-                    <option value="">Alle Kategorien</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="filterAvailability">Verfügbarkeit:</label>
-                <select id="filterAvailability" onchange="filterBooks()">
-                    <option value="">Alle</option>
-                    <option value="true">Verfügbar</option>
-                    <option value="false">Ausgeliehen</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label for="filterFavorites">Favoriten:</label>
-                <select id="filterFavorites" onchange="filterBooks()">
-                    <option value="">Alle</option>
-                    <option value="true">Nur Favoriten</option>
-                    <option value="false">Ohne Favoriten</option>
-                </select>
-            </div>
-        </aside>
+        <div class="container">
+            <!-- Sidebar für Filteroptionen -->
+            <aside id="sidebar">
+                <h2>Filter</h2>
+                <div class="filter-group">
+                    <label for="filterCategory">Kategorie:</label>
+                    <select id="filterCategory" onchange="filterBooks()">
+                        <option value="">Alle Kategorien</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterAvailability">Verfügbarkeit:</label>
+                    <select id="filterAvailability" onchange="filterBooks()">
+                        <option value="">Alle</option>
+                        <option value="true">Verfügbar</option>
+                        <option value="false">Ausgeliehen</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterFavorites">Favoriten:</label>
+                    <select id="filterFavorites" onchange="filterBooks()">
+                        <option value="">Alle</option>
+                        <option value="true">Nur Favoriten</option>
+                        <option value="false">Ohne Favoriten</option>
+                    </select>
+                </div>
+            </aside>
 
-        <!-- Hauptbereich für die Bücheranzeige -->
-        <main id="content">
-            <div id="bookList" class="book-grid"></div>
-			    <!-- Formular zum Hinzufügen neuer Bücher -->
-    <section id="addBookSection">
-        <h2>Buch hinzufügen</h2>
-        <form id="bookForm" onsubmit="event.preventDefault(); addBook();">
-            <input type="text" id="bookTitle" placeholder="Titel" required>
-            <input type="text" id="bookCover" placeholder="Cover-URL">
-            <input type="file" id="bookCoverFile" accept="image/*">
-            <select id="bookCategory" required></select>
-            <textarea id="bookDescription" placeholder="Beschreibung" required></textarea>
-            <input type="text" id="bookPrice" placeholder="Preis (€)" required>
-            <input type="text" id="bookIsbn" placeholder="ISBN" required>
-            <button type="submit">Buch hinzufügen</button>
-        </form>
-    </section>
-        </main>
-    </div>
-	
- <!-- Detail-Modal -->
-    <div id="bookDetailModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <p id="modalCategory"></p>
-            <p id="modalDescription"></p>
-            <p id="modalPrice"></p>
-            <p id="modalIsbn"></p>
+            <!-- Hauptbereich für die Bücheranzeige -->
+            <main id="content">
+                <div id="bookList" class="book-grid"></div>
+                    <!-- Formular zum Hinzufügen neuer Bücher -->
+        <section id="addBookSection">
+            <h2>Buch hinzufügen</h2>
+            <form id="bookForm" onsubmit="event.preventDefault(); addBook();">
+                <input type="text" id="bookTitle" placeholder="Titel" required>
+                <input type="text" id="bookCover" placeholder="Cover-URL">
+                <input type="file" id="bookCoverFile" accept="image/*">
+                <select id="bookCategory" required></select>
+                <textarea id="bookDescription" placeholder="Beschreibung" required></textarea>
+                <input type="text" id="bookPrice" placeholder="Preis (€)" required>
+                <input type="text" id="bookIsbn" placeholder="ISBN" required>
+                <button type="submit">Buch hinzufügen</button>
+            </form>
+        </section>
+            </main>
         </div>
-    </div>
+        
+    <!-- Detail-Modal -->
+        <div id="bookDetailModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <p id="modalCategory"></p>
+                <p id="modalDescription"></p>
+                <p id="modalPrice"></p>
+                <p id="modalIsbn"></p>
+            </div>
+        </div>
 
-    <!-- Bestätigungsmodal für das Löschen eines Buches -->
-    <div id="deleteConfirmationModal" class="modal">
-        <div class="modal-content">
-            <p>Bist du sicher, dass du dieses Buch löschen möchtest?</p>
-            <button id="confirmDeleteButton">Ja, löschen</button>
-            <button onclick="closeDeleteConfirmationModal()">Abbrechen</button>
+        <!-- Bestätigungsmodal für das Löschen eines Buches -->
+        <div id="deleteConfirmationModal" class="modal">
+            <div class="modal-content">
+                <p>Bist du sicher, dass du dieses Buch löschen möchtest?</p>
+                <button id="confirmDeleteButton">Ja, löschen</button>
+                <button onclick="closeDeleteConfirmationModal()">Abbrechen</button>
+            </div>
         </div>
-    </div>
+    </main>
 
     <!-- Verknüpfung mit der JavaScript-Datei -->
     <script src="script.js"></script>
