@@ -224,11 +224,10 @@ function closeDeleteConfirmationModal() {
 }
 
 // Schaltet den Dark Mode ein/aus
-function toggleDarkMode(override) {
-    const darkMode = override !== undefined ? override : !document.body.classList.contains("dark-mode");
-    document.body.classList.toggle("dark-mode", darkMode);
-    localStorage.setItem("darkMode", darkMode);
-    loadBooks();
+function toggleDarkMode() {
+    const isDarkMode = document.getElementById("darkModeToggle").checked; 
+    document.body.classList.toggle("dark-mode", isDarkMode);
+    localStorage.setItem("darkMode", isDarkMode); // Speichert den Zustand
 }
 
 // Ändert den Favoritenstatus eines Buches

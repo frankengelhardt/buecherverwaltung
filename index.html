@@ -13,10 +13,14 @@
         <div class="logo">Bücherverwaltung</div>
         <input type="text" id="searchInput" placeholder="Bücher suchen..." oninput="searchBooks()">
         <!-- Dark Mode Schalter -->
+		<div class="dark-mode-group"> 
+		<span class="icon sun">☀️</span>
         <label class="switch">
-            <input type="checkbox" onclick="toggleDarkMode()">
+            <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
             <span class="slider"></span>
         </label>
+		<span class="icon moon">🌙</span>
+		</div>
     </header>
 
     <main>
